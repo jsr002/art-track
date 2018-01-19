@@ -1,0 +1,102 @@
+<div class="col-md-12">
+	<div class="card">
+		<div class="card-header card-header-icon" data-background-color="rose">
+			<i class="material-icons">perm_identity</i>
+		</div>
+		<a href="" class="btn btn-primary btn-simple pull-right" title="Go Back"> Go Back </a>
+ 		 
+		<div class="card-content">
+			<h4 class="card-title">
+				Edit Profile - <small class="category">Complete your profile</small>
+			</h4>
+			<form>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group label-floating">
+							<label class="control-label">Name</label> 
+							<input type="text" ng-model="user.name" class="form-control">
+						</div>
+					</div>
+					<!-- <div class="col-md-4"><div class="form-group label-floating">
+							<label class="control-label">Last Name</label> 
+							<input type="text" class="form-control">
+						</div>
+					</div> -->
+					<div class="col-md-4"><div class="form-group label-floating">
+							<label class="control-label">Email Address</label> 
+							<input type="email" ng-model="user.email" class="form-control">
+						</div></div>
+					
+					</div>
+					<div class="row">
+					<div class="col-md-4">
+						<div class="form-group label-floating">
+							<label class="control-label">Mobile Number</label>
+							<input type="text" ng-model="user.mobileNumber" class="form-control">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group label-floating">
+							<label class="control-label">Country</label>
+							<input type="text" ng-model="user.country" class="form-control">
+						</div>
+					</div>
+				</div>
+ 				 
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Address</label>
+							<div class="form-group label-floating">
+								<label class="control-label"> Enter Address here....</label>
+								<textarea class="form-control" rows="2" ng-model="user.address"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>About Me</label>
+							<div class="form-group label-floating">
+								<label class="control-label"> Write a brief introduction about you....</label>
+								<textarea class="form-control" rows="5" ng-model="user.aboutMe"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-10"  ng-repeat ="profile in selectedProfiles track by $index">
+					<div class="col-row">
+					<div class="col-md-4">
+						<select class="selectpicker" ng-options="subject.name for subject in subjects"
+							data-style="btn btn-primary" id="profileSubjectpicker{{$index}}" title="Select Subject" data-size="7" ng-change="getJournalsBySubject($index)" ng-model="profile.subject">
+						</select>
+					</div>
+					<div class="col-md-4">
+						<select class="selectpicker" ng-options ="journal.name for journal in profile.allJournals"
+							data-style="btn btn-primary" id="profileJournalpicker{{$index}}" title="Select Journal"  data-size="7"  ng-model="profile.journal">
+						</select>
+					</div>
+					<div class="col-md-4">
+						<select multiple="multiple" class="selectpicker" ng-options ="role.name for role in roles"
+							data-style="btn btn-primary" id="profileRolepicker{{$index}}" title="Select Role" data-size="7"  ng-model="profile.roles">
+							<option disabled>Role</option>
+ 						</select>
+					</div>
+					</div>
+					</div>
+					<div class="col-md-1">
+						&nbsp;
+					</div>
+					<div class="col-md-1">
+						<button class="btn btn-info pull-right" ng-click="addInterest()">Add Interest</button> 
+					</div>
+				</div>
+				
+				
+				<button class="btn btn-rose pull-right" ng-click="updateUserProfile()">Update Profile</button>
+				<div class="clearfix"></div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,97 @@
+	<div class="panel-heading" role="tab" id="headingOne">
+		<a role="button" data-toggle="collapse" data-parent="#accordion"
+			href="#collapseJournals" aria-controls="collapseJournals">
+			<h4 class="panel-title">
+				Journals <i class="material-icons">keyboard_arrow_down</i>
+			</h4>
+		</a>
+	</div>
+	<div id="collapseJournals" class="panel-collapse collapse">
+		<div class="panel-body" ng-hide="journals.showEditor">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="text-center">S.No</th>
+									<th>Journal Name</th>
+									<th>Journal Url</th>
+									<th>Subject</th>
+									<th>Journal Classifications</th>
+									<th class="text-right">Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="journal in journals.list">
+									<td class="text-center" ng-bind="$index +1"></td>
+									<td ng-bind="journal.name"></td>
+									<td ng-bind="journal.url"></td>
+									<td ng-bind="journal.subject.name"></td>
+									<td ng-bind="journal.classifications"></td>
+									<td class="td-actions text-right">
+										<button type="button" rel="tooltip" class="btn btn-success" ng-click="updateJournal(journal)">
+											<i class="material-icons">edit</i>
+										</button>
+										<button type="button" rel="tooltip" class="btn btn-danger"  ng-click="deleteJournal(journal)">
+											<i class="material-icons">close</i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-rose pull-right" ng-click="updateJournal({'id' :0, 'name': '', 'subject': {'id':0}})">Add
+							More +</button>
+					</div>
+				</div>
+		<a href=""  ng-show="journals.showEditor" ng-click="loadJournalsGrid()" class="btn btn-primary btn-simple pull-right" title="Go Back"> Go Back </a>
+		<div class="panel-body" ng-show="journals.showEditor">
+                                    <form>
+                                       <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Journal Name</label>
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label"> Enter/Edit Journal Name here..</label>
+                                                        <input type="text" class="form-control" ng-model="journals.editJourn.name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Journal Url</label>
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label"> Enter/Edit Journal Url here..</label>
+                                                        <input type="url" class="form-control" ng-model="journals.editJourn.url">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                               <div class="form-group">
+                                                <label>Select Subject</label>
+                                                <select class="selectpicker" data-style="btn btn-primary" id="journalSubjectPicker" title="Select Subject"  ng-model="journals.editJourn.subject.id">
+                                               	<option disabled >Please select</option>
+                                               	<option ng-repeat="subject in subjects.list" ng-bind="subject.name" ng-value="subject.id" ng-selected="journals.editJourn.subject.id == subject.id"></option>
+                                                <!--  <option value="111" >Clinical</option>
+                                                 <option value="112">Engineering</option>
+                                                 <option value="113" selected>Medical</option> -->
+                                                 </select>
+												</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                               <div class="form-group">
+                                                    <label>Clissifications</label>
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label"> Enter/Edit classifications seperated by comma..</label>
+                                                        <input type="text" class="form-control" ng-model="journals.editJourn.classifications">
+                                                    </div>
+                                                </div>
+                                             </div>
+                                            
+                                        </div>
+                                           <button type="submit" class="btn btn-rose pull-right"  ng-click="saveJournal(journals.editJourn)">Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>	
+			</div>
+		

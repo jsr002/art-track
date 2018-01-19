@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+			data-target="#navigation-example-2">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" ui-sref="dashboard" href="dashboard.html">Tracking
+			Dashboard</a>
+	</div>
+	<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav navbar-right">
+			<li class="" ng-class="{'active':stateLoaded =='dashboard'}"><a
+				ui-sref="dashboard" href="dashboard.html"
+				ng-click="stateLoaded ='dashboard'"> <i class="material-icons">dashboard</i>
+					Dashboard
+			</a></li>
+			<li class="" ng-class="{'active':stateLoaded =='register'}"><a
+				ui-sref="register" href="register.html"
+				ng-click="stateLoaded ='register'"> <i class="material-icons">person_add</i>
+					Register
+			</a></li>
+			<li class="" ng-class="{'active':stateLoaded =='login'}"><a
+				ui-sref="login" href="#" ng-click="stateLoaded ='login'"> <i
+					class="material-icons">fingerprint</i> Login
+			</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+	<div class="panel-heading" role="tab" >
+		<a role="button" data-toggle="collapse" data-parent="#accordion"
+			href="#collapseSubjects" aria-controls="collapseSubjects">
+			<h4 class="panel-title">
+				Subjects <i class="material-icons">keyboard_arrow_down</i>
+			</h4>
+		</a>
+	</div>
+	<div id="collapseSubjects" class="panel-collapse collapse">
+		<div class="panel-body"  ng-hide="subjects.showEditor">
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="text-center">S.No</th>
+							<th>Subject Name</th>
+							<th class="text-right">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="subject in subjects.list">
+							<td class="text-center" ng-bind="$index+1"></td>
+							<td ng-bind="subject.name"></td>
+							<td class="td-actions text-right">
+								<button type="button" rel="tooltip" class="btn btn-success"
+									ng-click="updateSubject(subject);">
+									<i class="material-icons">edit</i>
+								</button>
+								<button type="button" rel="tooltip" class="btn btn-danger"
+									ng-click="deleteSubject(subject)">
+									<i class="material-icons">close</i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<button type="submit" class="btn btn-rose pull-right"
+					ng-click="updateSubject({'id' :0, 'name': ''})">Add More +</button>
+			</div>
+		</div>
+		<a href=""  ng-show="subjects.showEditor" ng-click="loadSubjectsGrid()" class="btn btn-primary btn-simple pull-right" title="Go Back"> Go Back </a>
+		<div class="panel-body" ng-show="subjects.showEditor">
+					<form>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Subject Name</label>
+									<div class="form-group label-floating">
+										<label class="control-label"> Enter/Edit Subject Name
+											here..</label> <input type="text" ng-model="subjects.editSubj.name" class="form-control">
+									</div>
+									<input type="hidden" ng-model="subjects.editSubj.id" class="form-control">
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-rose pull-right" ng-click="saveSubject(subjects.editSubj)" >Submit</button>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+	</div>

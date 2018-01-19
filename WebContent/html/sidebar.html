@@ -1,0 +1,36 @@
+
+		<!--
+        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
+        Tip 2: you can also add an image using data-image tag
+        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
+    -->
+		<div class="logo">
+			<a href="#" class="simple-text"> Tracking Dashboard </a>
+		</div>
+		<div class="logo logo-mini">
+			<a href="#" class="simple-text"> TD </a>
+		</div>
+		<div class="sidebar-wrapper">
+			<div class="user">
+				<div class="photo">
+					<img src="assets/img/faces/avatar.jpg" />
+				</div>
+				<div class="info">
+					<a data-toggle="collapse" href="#collapseExample" class="collapsed" >
+						 {{user.getName()}}<b class="caret"></b>
+					</a>
+					<div class="collapse" id="collapseExample">
+						<ul class="nav">
+							<li><a href="#userprofile">My Profile</a></li>
+							<li><a href="#logout">Log out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<ul class="nav">
+				<li class="active"><a href="#dashboard"> <i
+						class="material-icons">dashboard</i>
+						<p>Dashboard</p>
+				</a></li>
+			</ul>
+		</div>

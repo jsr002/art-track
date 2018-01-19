@@ -1,0 +1,368 @@
+
+<div class="wrapper">
+	<div class="sidebar" data-active-color="rose"
+		data-background-color="black" data-image="assets/img/sidebar-1.jpg"
+		ng-include src="'html/sidebar.html'"></div>
+	<div class="main-panel">
+		<nav class="navbar navbar-transparent navbar-absolute">
+			<div class="container-fluid">
+				<div class="navbar-minimize">
+					<button id="minimizeSidebar"
+						class="btn btn-round btn-white btn-fill btn-just-icon">
+						<i class="material-icons visible-on-sidebar-regular">more_vert</i>
+						<i class="material-icons visible-on-sidebar-mini">view_list</i>
+					</button>
+				</div>
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#dashboard"> Dashboard </a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#pablo" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="material-icons">dashboard</i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+						</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="material-icons">notifications</i>
+								<span class="notification">5</span>
+								<p class="hidden-lg hidden-md">
+									Notifications <b class="caret"></b>
+								</p>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Mike John responded to your email</a></li>
+								<li><a href="#">You have 5 new tasks</a></li>
+								<li><a href="#">You're now friend with Andrew</a></li>
+								<li><a href="#">Another Notification</a></li>
+								<li><a href="#">Another One</a></li>
+							</ul></li>
+						<li><a href="#pablo" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="material-icons">person</i>
+								<p class="hidden-lg hidden-md">Profile</p>
+						</a></li>
+						<li class="separator hidden-lg hidden-md"></li>
+					</ul>
+					<form class="navbar-form navbar-right" role="search">
+						<div class="form-group form-search is-empty">
+							<input type="text" class="form-control" placeholder="Search">
+							<span class="material-input"></span>
+						</div>
+						<button type="submit"
+							class="btn btn-white btn-round btn-just-icon">
+							<i class="material-icons">search</i>
+							<div class="ripple-container"></div>
+						</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="content">
+			<div class="container-fluid">
+			<!-- <div uib-alert ng-class="'alert-' + (alert.type || 'warning')" close="close()" >{{alert.msg}}</div> -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+
+							<div class="card-header card-header-icon"
+								data-background-color="rose">
+								<i class="material-icons">profile</i>
+							</div>
+							<div class="card-header card-header-icon pull-right"
+								data-background-color="rose" title="Submit Article" style="cursor:pointer" ng-click="goToSubmitArticle()">
+								<i class="material-icons">assignment</i>+
+							</div>
+							<h4 class="card-title" ng-bind="'Welcome '+user.getName()"></h4>
+							<div class="card-content">
+								<div id="acordeon">
+									<div class="panel-group" id="accordion">
+										<!-- subjects -->
+										<div ng-if="user.isSuperAdmin()" class="panel panel-border panel-default" ng-include src="'html/subjects.html'"></div>
+										<!-- journals -->
+										<div ng-if="user.isSuperAdmin()" class="panel panel-border panel-default" ng-include src="'html/journals.html'"></div>
+										<!-- users -->
+										<div class="panel panel-border panel-default" ng-if="user.isSuperAdmin()" ng-include src="'html/users.html'">
+										</div>
+										<!-- Admin Articles -->
+										<div class="panel panel-border panel-default" ng-if="user.isAdmin() || user.isSuperAdmin() ">
+											<div class="panel-heading" role="tab" id="headingOne">
+												<a role="button" data-toggle="collapse"
+													data-parent="#accordion" href="#adminArticles"
+													aria-controls="adminArticles">
+													<h4 class="panel-title">
+														Articles<i class="material-icons">keyboard_arrow_down</i>
+													</h4>
+												</a>
+											</div>
+											<div id="adminArticles" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="table-responsive">
+														<table class="table">
+															<thead>
+																<tr>
+																	<th>Article Id</th>
+																	<th>Article Name</th>
+																	<th>Editor Id</th>
+																	<th>Reviewer Id</th>
+																	<th>Author</th>
+																	<th>JournalId</th>
+																	<th>Submitted Date</th>
+																	<th>Article Type</th>
+																	<th>Article Status</th>
+																	<th class="text-right">Actions</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="article in admin.articles">
+																	<td ng-bind="article.articleId"></td>
+																	<td ng-bind="article.articleName"></td>
+																	<td ng-bind="article.editorId"></td>
+																	<td ng-bind="article.reviewerId"></td>
+																	<td ng-bind="article.author"></td>
+																	<td ng-bind="article.journalId"></td>
+																	<td ng-bind="article.submittedDate"></td>
+																	<td ng-bind="article.articleType"></td>
+																	<td ng-bind="article.articleStatus"></td>
+																	<td class="td-actions text-right">
+																		<button type="button" rel="tooltip"
+																			class="btn btn-info">
+																			<i class="material-icons">person</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-success">
+																			<i class="material-icons">edit</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-danger">
+																			<i class="material-icons">close</i>
+																		</button>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Articles -->
+										<div class="panel panel-border panel-default" >
+											<div class="panel-heading" role="tab" id="headingOne">
+												<a role="button" data-toggle="collapse" data-parent="#accordion" href="#allArticles" aria-controls="allArticles">
+													<h4 class="panel-title">
+														Submitted Articles <i class="material-icons">keyboard_arrow_down</i>
+													</h4>
+												</a>
+											</div>
+											<div id="allArticles" class="panel-collapse collapse">
+												<div class="panel-body">
+ 														<table class="table table-responsive">
+															<thead>
+																<tr>
+																	<th>Article Name</th>
+																	<th>Editor Name</th>
+																	<th>Reviewer Name</th>
+																	<th>Author Name</th>
+																	<th>Journal</th>
+																	<th>Submitted Date</th>
+																	<th>Article Status</th>
+																	<th class="text-right">Actions</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="article in authors.articles">
+																	<td ng-bind="article.articleName"></td>
+																	<td ng-bind="article.editorName"></td>
+																	<td ng-bind="article.reviewerName"></td>
+																	<td ng-bind="article.authorName"></td>
+																	<td ng-bind="article.journalName"></td>
+																	<td ng-bind="article.submittedDate"></td>
+																	<td ng-bind="article.status"></td>
+																	<td class="td-actions text-right">
+																		<button type="button" rel="tooltip"
+																			class="btn btn-info" ng-click="assign(article)">
+																			<i class="material-icons">person</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-success" ng-click="editArticle(article)">
+																			<i class="material-icons">edit</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-danger" ng-click="deleteArticle(article)">
+																			<i class="material-icons">close</i>
+																		</button>
+																	</td>
+																</tr>
+																
+															</tbody>
+															
+														</table>
+													 
+												</div>
+											</div>
+										</div>
+	
+										<!-- Editor Articles -->
+										<div class="panel panel-border panel-default" ng-if="user.isEditor() && editors.articles.length>0">
+											<div class="panel-heading" role="tab" id="headingOne">
+												<a role="button" data-toggle="collapse"
+													data-parent="#accordion" href="#editorArticles"
+													aria-controls="editorArticles">
+													<h4 class="panel-title">
+														Articles For Edit <i class="material-icons">keyboard_arrow_down</i>
+													</h4>
+												</a>
+											</div>
+											<div id="editorArticles" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="table-responsive">
+														<table class="table">
+															<thead>
+																<tr>
+																	<th>Article Id</th>
+																	<th>Article Name</th>
+																	<th>Editor Id</th>
+																	<th>Reviewer Id</th>
+																	<th>Author</th>
+																	<th>JournalId</th>
+																	<th>Submitted Date</th>
+																	<th>Article Type</th>
+																	<th>Article Status</th>
+																	<th class="text-right">Actions</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="article in editors.articles">
+																	<td ng-bind="article.articleId"></td>
+																	<td ng-bind="article.articleName"></td>
+																	<td ng-bind="article.editorId"></td>
+																	<td ng-bind="article.reviewerId"></td>
+																	<td ng-bind="article.author"></td>
+																	<td ng-bind="article.journalId"></td>
+																	<td ng-bind="article.submittedDate"></td>
+																	<td ng-bind="article.articleType"></td>
+																	<td ng-bind="article.articleStatus"></td>
+																	<td class="td-actions text-right">
+																		<button type="button" rel="tooltip"
+																			class="btn btn-info">
+																			<i class="material-icons">person</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-success">
+																			<i class="material-icons">edit</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-danger">
+																			<i class="material-icons">close</i>
+																		</button>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- #reviewerArticles -->
+										<div class="panel panel-border panel-default" ng-if="user.isReviewer() && reviewers.articles.length>0">
+											<div class="panel-heading" role="tab" id="headingOne">
+												<a role="button" data-toggle="collapse"
+													data-parent="#accordion" href="#reviewerArticles"
+													aria-controls="reviewerArticles">
+													<h4 class="panel-title">
+														Articles for Review<i class="material-icons">keyboard_arrow_down</i>
+													</h4>
+												</a>
+											</div>
+											<div id="reviewerArticles" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="table-responsive">
+														<table class="table">
+															<thead>
+																<tr>
+																	<th>Article Id</th>
+																	<th>Article Name</th>
+																	<th>Editor Id</th>
+																	<th>Reviewer Id</th>
+																	<th>Keywords</th>
+																	<th>Author</th>
+																	<th>JournalId</th>
+																	<th>Abstract</th>
+																	<th>Submitted Date</th>
+																	<th>CoAuthor</th>
+																	<th>Number Of Pages</th>
+																	<th>Article Type</th>
+																	<th>Article Status</th>
+																	<th class="text-right">Actions</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="article in reviewers.articles">
+																	<td ng-bind="article.articleId"></td>
+																	<td ng-bind="article.articleName"></td>
+																	<td ng-bind="article.editorId"></td>
+																	<td ng-bind="article.reviewerId"></td>
+																	<td ng-bind="article.keywords"></td>
+																	<td ng-bind="article.author"></td>
+																	<td ng-bind="article.journalId"></td>
+																	<td ng-bind="article.abstract"></td>
+																	<td ng-bind="article.submittedDate"></td>
+																	<td ng-bind="article.coAuthor"></td>
+																	<td ng-bind="article.numberOfPages"></td>
+																	<td ng-bind="article.articleType"></td>
+																	<td ng-bind="article.articleStatus"></td>
+																	<td class="td-actions text-right">
+																		<button type="button" rel="tooltip"
+																			class="btn btn-info">
+																			<i class="material-icons">person</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-success">
+																			<i class="material-icons">edit</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-danger">
+																			<i class="material-icons">close</i>
+																		</button>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<footer class="footer">
+			<div class="container-fluid">
+				<nav class="pull-left">
+					<ul>
+						<li><a href="#"> Home </a></li>
+						<li><a href="#"> Company </a></li>
+						<li><a href="#"> Portfolio </a></li>
+						<li><a href="#"> Blog </a></li>
+					</ul>
+				</nav>
+				<p class="copyright pull-right">
+					<a href="http://www.creative-tim.com">Creative Tim</a>, made with
+					love for a better web
+				</p>
+			</div>
+		</footer>
+	</div>
+</div>

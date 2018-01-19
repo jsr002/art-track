@@ -1,0 +1,54 @@
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<h4 class="card-title"><b>Article Details</b></h4>
+					<div class="card-content">
+						<table class="table table-bordered table-responsive">
+							<tbody>
+								<tr>
+									<td>Article Name</td>
+									<td ng-bind="article.articleName"></td>
+								</tr>
+								<tr>
+									<td>Author Name</td>
+									<td><input type="text" ng-model="article.authorName" class="form-control"></td>
+								</tr>
+								<tr>
+									<td>Editor Name</td>
+									<td><input type="text" ng-model="article.editorName" class="form-control"></td>
+								</tr>
+								<tr>
+									<td>Editor Comments</td>
+									<td ng-bind="article.editorComments"></td>
+								</tr>
+								<tr>
+									<td>Reviewer Name</td>
+									<td><input type="text" ng-model="article.reviewerName" class="form-control"></td>
+								</tr>
+								<tr>
+									<td>Review Comments</td>
+									<td ng-bind="article.reviewComments"></td>
+								</tr>
+								<tr>
+									<td>Journal Name</td>
+									<td ng-bind="article.journalName"></td>
+								</tr>
+								<tr>
+									<td>Article Status</td>
+									<td><input type="text" ng-model="article.status" class="form-control"></td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+			            <button class="btn btn-primary" type="button" ng-click="saveArticle(article)">OK</button>
+			            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

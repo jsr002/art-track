@@ -1,0 +1,50 @@
+<div class="panel-heading" role="tab" id="headingOne">
+												<a role="button" data-toggle="collapse"
+													data-parent="#accordion" href="#users"
+													aria-controls="users">
+													<h4 class="panel-title">
+														Users List <i class="material-icons">keyboard_arrow_down</i>
+													</h4>
+												</a>
+											</div>
+											<div id="users" class="panel-collapse collapse">
+												<div class="panel-body">
+													<div class="table-responsive">
+														<table class="table table-boardered">
+															<thead>
+																<tr>
+																	<th>UserId</th>
+																	<th>Name</th>
+																	<th>Email</th>
+																	<th>Mobile Number</th>
+																	<th>Country</th>
+																	<th class="text-right">Actions</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="user in users.list">
+																	<td ng-bind="user.userId"></td>
+																	<td ng-bind="user.userName"></td>
+																	<td ng-bind="user.email"></td>
+																	<td ng-bind="user.mobileNumner"></td>
+																	<td ng-bind="user.country"></td>
+																	<td class="td-actions text-right">
+																		<button type="button" rel="tooltip"
+																			class="btn btn-info">
+																			<i class="material-icons">person</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-success">
+																			<i class="material-icons">edit</i>
+																		</button>
+																		<button type="button" rel="tooltip"
+																			class="btn btn-danger">
+																			<i class="material-icons">close</i>
+																		</button>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>

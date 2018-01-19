@@ -1,0 +1,27 @@
+<div class="panel-heading" role="tab" id="headingOne" >
+		<a role="button" data-toggle="collapse" data-parent="#accordion"
+			href="#collapseSubjects" aria-controls="collapseOne">
+			<h4 class="panel-title">
+				Create Subject <i class="material-icons">keyboard_arrow_down</i>
+			</h4>
+		</a>
+	</div>
+	<div id="collapseSubjects" class="panel-collapse collapse">
+		<div class="panel-body" ng-show="subjects.showEditor">
+					<form>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>Subject Name</label>
+									<div class="form-group label-floating">
+										<label class="control-label"> Enter/Edit Subject Name
+											here..</label> <input type="text" ng-model="subjects.editSubj.name" class="form-control">
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-rose pull-right" ng-click="saveSubject(subjects.editSubj)" >Submit</button>
+						<div class="clearfix"></div>
+					</form>
+				</div>
+			</div>

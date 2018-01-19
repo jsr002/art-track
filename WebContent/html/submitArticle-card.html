@@ -1,0 +1,118 @@
+ <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-icon" data-background-color="rose">
+                                    <i class="material-icons">assignment</i>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-title">Submit an Article</h4>
+                                    <form name="articleUploadForm" id="articleUploadForm">
+                                    	<div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Article Title</label>
+                                                    <input type="text" name = "articleName" class="form-control">
+                                                </div>
+                                            </div>
+                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <select class="selectpicker" id="articleTypePicker" name = "articleType"  data-style="btn btn-primary" title="Select Article Type">
+                                                        <option disabled>Select Article Type</option>
+                                                        <option value="case report">Case Report</option>
+                                                        <option value="case series">Case Series</option>
+                                                        <option value="editorial">Editorial</option>
+                                                        <option value="letter">Letter</option>
+                                                        <option value="mini review">Mini Review</option>
+                                                        <option value="opinion">Opinion</option>
+                                                        <option value="prospectives">Prospectives</option>
+														<option value="research">Research</option>
+														<option value="review">Review</option>
+														<option value="short communication">Short Communication</option>
+														<option value="special issue">Special Issue</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Corresponding Author </label>
+                                                    <input type="text" name = "correspondingAuthor" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Email address</label>
+                                                    <input type="email" name = "authorEmail" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        	<div class="col-md-5">
+                                                <select class="selectpicker" id="subjectPicker" name = "articleSubject" data-style="btn btn-primary" title="Select Subject">
+                                                        <option disabled>Article Subject</option>
+                                                        <option value="Subject 1">Subject 1</option>
+                                                        <option value="Subject 2">Subject 2</option>
+                                                        <option value="Subject 3">Subject 3</option>
+                                                        <option value="Subject 4">Subject 4</option>
+                                                  </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Co Author </label>
+                                                    <input type="text" name = "co-author" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Co Author Email address</label>
+                                                    <input type="email"  name = "co-authorEmail" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Abstract</label>
+                                                    <div class="form-group label-floating">
+                                                        <label class="control-label"> Enter Abstract here</label>
+                                                        <textarea class="form-control" name = "abstract" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Keywords</label>
+                                                    <input type="text" name = "keyWords" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Country</label>
+                                                    <input type="text" name = "country" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">Upload Files</span>
+                                                         <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                         </div>
+                                         <input type="hidden" name="methodType" value="submitArticle"></input>
+                                          <button ng-click="service.uploadArticle()" class="btn btn-rose pull-right">Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
